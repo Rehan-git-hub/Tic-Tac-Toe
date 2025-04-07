@@ -16,24 +16,17 @@ window.addEventListener("DOMContentLoaded",()=>{
         [0,4,8],
         [2,4,6]
     ];
-
-    boxes.forEach((box) => {
-        box.addEventListener("click", () => {
-            console.log("box was clicked");
-            clickcounter++;
-            if(turn0) {
-                box.classList.add("ocolor");
-                box.innerText = "O";
-                turn0 = false;
-            }else{
-                box.classList.add("xcolor");
-                box.innerText = "X";
-                turn0 = true;
-            }
-            box.disabled = true ;
-            checkWinner();
-        });
-    });
+    const resetgame = () => {
+        turn0 = true;
+        enableBoxes();
+        messageBox.classList.add("hide");
+    }
+    const enableBoxes = () => {
+        for(box of boxes){
+            box.disabled = false;
+            box.innerText= "";
+        }
+    }
     const showWinner = (winner) => {
         message.innerText = `Winner is ${winner}`
         messageBox.classList.remove("hide");
@@ -65,17 +58,23 @@ window.addEventListener("DOMContentLoaded",()=>{
             }
         }
     };
-    const resetgame = () => {
-        turn0 = true;
-        enableBoxes();
-        messageBox.classList.add("hide");
-    }
-    const enableBoxes = () => {
-        for(box of boxes){
-            box.disabled = false;
-            box.innerText= "";
-        }
-    }
+    boxes.forEach((box) => {
+        box.addEventListener("click", () => {
+            console.log("box was clicked");
+            clickcounter++;
+            if(turn0) {
+                box.classList.add("ocolor");
+                box.innerText = "O";
+                turn0 = false;
+            }else{
+                box.classList.add("xcolor");
+                box.innerText = "X";
+                turn0 = true;
+            }
+            box.disabled = true ;
+            checkWinner();
+        });
+    });
     newGame.addEventListener("click", resetgame);
     resetbtn.addEventListener("click", resetgame);
 })
