@@ -21,9 +21,11 @@ boxes.forEach((box) => {
         console.log("box was clicked");
         clickcounter++;
         if(turn0) {
+            box.classList.add("ocolor");
             box.innerText = "O";
             turn0 = false;
         }else{
+            box.classList.add("xcolor");
             box.innerText = "X";
             turn0 = true;
         }

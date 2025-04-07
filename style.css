@@ -48,6 +48,8 @@ body {
 }
 .message{
     font-size: 8vmin;
+    padding-top: 180px;
+    padding-bottom: 20px;
 }
 .newgame{
     text-align: center;
@@ -61,12 +63,10 @@ body {
 }
 .message-box{
     height: 110vmin;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 8px;
-
 }
-
+.xcolor{
+    color: #AC8887;
+}
+.ocolor{
+    color: #9F4A54;
+}
